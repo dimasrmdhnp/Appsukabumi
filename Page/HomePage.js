@@ -9,60 +9,9 @@ import {
     TouchableOpacity
 } from 'react-native';
 
+import BottomBar from './BottomBar';
+
 export default class HomePage extends React.Component {
-
-    _ProfileButton() {
-        const navigation = this.props.navigation;
-
-        const buttons = [
-            {
-                btnName: 'Home',
-                btnPage: 'HomePage',
-                btnImage: require('../home.png')
-            },
-            {
-                btnName: 'E-Lapor',
-                btnPage: 'Elapor',
-                btnImage: require('../elapor.png')
-            },
-            {
-                btnName: 'Pengaturan',
-                btnPage: 'Setting',
-                btnImage: require('../pengaturan.png')
-            }
-        ];
-
-        const btn = buttons.map(function (item, index) {
-            return (
-                <TouchableOpacity
-                    key={index}
-                    style={{
-                        flexDirection: 'row',
-                        flex: 1,
-                        textAlign: 'center',
-                        justifyContent: 'center',
-                        ...(index == 1 ? { borderRightWidth: 1 } : {}),
-                        ...(index == 1 ? { borderLeftWidth: 1 } : {}),
-                        borderTopWidth: 1
-                    }}
-                    onPress={() => navigation.navigate(`${item.btnPage}`)}
-                >
-                    <View
-                        style={{
-                            paddingTop: 5,
-                            paddingBottom: 5,
-                        }}
-                    >
-                        <Image
-                            style={{ width: 25, height: 25 }}
-                            source={item.btnImage}
-                        />
-                    </View>
-                </TouchableOpacity >
-            )
-        });
-        return (btn);
-    }
 
     render() {
 
@@ -85,10 +34,13 @@ export default class HomePage extends React.Component {
                     }}
                 >
                 </SafeAreaView>
-                <ScrollView>
+                <ScrollView
+                    style={{
+                        flex: 1
+                    }}
+                >
                     <View
                         style={{
-                            borderWidth: 10,
                             backgroundColor: 'rgb(52,73,100)',
                             height: 200,
                             width: '100%'
@@ -141,14 +93,10 @@ export default class HomePage extends React.Component {
                     </View>
                 </ScrollView>
                 <View
-                    style={{
-                        flexDirection: "row",
-                        marginTop: 15,
-                        position: 'absolute',
-                        bottom: 0,
-                    }}
                 >
-                    {this._ProfileButton()}
+                    <BottomBar
+                        navigation={navigation}
+                    />
                 </View>
             </View>
         );

@@ -1,4 +1,5 @@
 import { createSwitchNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
+import HomePage from './Page/HomePage';
 import Page from './Page/Page';
 import TestScreen from './Page/TestScreen';
 import KtpPage from './Page/KtpPage';
@@ -14,11 +15,15 @@ import PageAhliWaris from './Page/PageAhliWaris';
 import PagePinjamBank from './Page/PagePinjamBank';
 import IzinReklame from './Page/IzinReklame';
 import IzinRame from './Page/IzinRame';
-import HomePage from './Page/HomePage';
 import Elapor from './Page/Elapor';
 import Setting from './Page/Setting';
+import SettingAkun from './Page/SettingAkun';
+import SettingId from './Page/SettingID';
 
 const Screen = createStackNavigator({
+    HomePage: {
+        screen: HomePage
+    },
     Page: {
         screen: Page
     },
@@ -64,18 +69,22 @@ const Screen = createStackNavigator({
     IzinRame: {
         screen: IzinRame
     },
-    HomePage: {
-        screen: HomePage
-    },
     Elapor: {
         screen: Elapor
     },
     Setting: {
         screen: Setting
+    },
+    SettingAkun: {
+        screen: SettingAkun
+    },
+    SettingId: {
+        screen: SettingId
     }
 },
     {
         headerMode: 'none'
+
     });
 export const ScreenContainer = createAppContainer(Screen);
 

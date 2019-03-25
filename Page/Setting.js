@@ -6,7 +6,8 @@ import {
     SafeAreaView,
     ScrollView,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    TextInput,
 } from 'react-native';
 
 export default class Setting extends React.Component {
@@ -67,33 +68,55 @@ export default class Setting extends React.Component {
     _SettingProfile() {
         const navigation = this.props.navigation;
 
-        const buttons = [
+        const desc = [
             {
-                itemName: 'Nama Lengkap',
+                itemName: 'Akun',
+                btnPage: 'SettingAkun'
             },
             {
-                itemName: 'Tanggal Lahir',
+                itemName: 'Syarat dan Ketentuan',
+                btnPage: 'SyaratDanKetentuan'
             },
             {
-                itemName: 'Jenis Kelamin',
+                itemName: 'Kebijakan Privasi',
+                btnPage: 'KebijakanPrivasi'
             },
             {
-                itemName: ' Alamat',
+                itemName: 'Pusat Bantuan',
+                btnPage: 'PusatBantuan'
             },
             {
-                itemName: 'Nomor Handphone',
-            },
-            {
-                itemName: 'Email',
-            },
-            {
-                itemName: 'Nomor Handphone',
-            },
-            {
-                itemName: 'Ubah Password',
+                itemName: 'Keluar',
+                btnPage: 'Keluar',
             }
         ];
+
+        const item = desc.map(function (name, index) {
+            return (
+                <TouchableOpacity
+                    key={index}
+                    style={{
+                        flexDirection: 'row',
+                        padding: 16,
+                        borderBottomWidth: 0.4,
+                    }}
+                    onPress={() =>
+                        navigation.navigate(`${item.btnPage}`)}
+                >
+                    <Text
+                        style={{
+                            color: '#333333'
+                        }}
+                    >
+                        {name.itemName}
+                    </Text>
+                </TouchableOpacity>
+            )
+        });
+
+        return (item);
     }
+
     render() {
 
         const navigation = this.props.navigation;
@@ -115,34 +138,57 @@ export default class Setting extends React.Component {
                     }}
                 >
                 </SafeAreaView>
-                <ScrollView
+
+                <View
                     style={{
+                        height: 65,
+                        width: '100%',
+                        justifyContent: 'center',
+                        alignItems: 'center',
                         flexDirection: 'row',
-                        marginTop: 15
+                        shadowColor: 'grey',
+                        shadowOffset: { width: 1.5, height: 1.5 },
+                        shadowRadius: 2,
+                        shadowOpacity: 0.35,
+                        elevation: 3,
+                        backgroundColor: 'white'
                     }}
                 >
-                    <View
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('HomePage')}
                         style={{
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            alignContent: 'center',
-                            marginTop: 210
+                            flex: 0.4,
+                            marginLeft: 16
                         }}
                     >
                         <Text
                             style={{
-                                fontSize: 20,
-                                textAlign: 'center'
+                                fontSize: 26,
+                                color: '#333333',
                             }}
                         >
-                            Win ini lg buat array
+                            {'<'}
                         </Text>
-                    </View>
+                    </TouchableOpacity>
+                    <Text
+                        style={{
+                            fontWeight: 'bold',
+                            fontSize: 20,
+                            color: '#333333',
+                            flex: 0.65
+                        }}
+                    >Setting</Text>
+                </View>
+
+                <ScrollView
+                    style={{
+                    }}
+                >
                     <View>
                         {this._SettingProfile()}
                     </View>
                 </ScrollView>
-            </View>
+            </View >
         );
     }
 }
