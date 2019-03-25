@@ -1,0 +1,11 @@
+BottomBar bojonggenteng code utk border
+
+style={{
+                        flexDirection: 'row',
+                        flex: 1,
+                        textAlign: 'center',
+                        justifyContent: 'center',
+                        ...(index == 1 ? { borderRightWidth: 1 } : {}),
+                        ...(index == 1 ? { borderLeftWidth: 1 } : {}),
+                        borderTopWidth: 1,
+                    }}

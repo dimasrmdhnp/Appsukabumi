@@ -42,32 +42,86 @@ export default class HomePage extends React.Component {
                     <View
                         style={{
                             backgroundColor: 'rgb(52,73,100)',
-                            height: 200,
-                            width: '100%'
+                            height: 160,
+                            width: '100%',
+                            shadowColor: 'grey',
+                            shadowOffset: { width: 1.5, height: 1.5 },
+                            shadowRadius: 2,
+                            shadowOpacity: 0.35,
+                            elevation: 3,
                         }}
                     >
+                        <View
+                            style={{
+                                paddingTop: 12
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    color: 'white',
+                                    fontSize: 18,
+                                    textAlign: 'center'
+                                }}
+                            >
+                                Berita Terkini
+                            </Text>
+                        </View>
                     </View>
 
                     <View
                         style={{
-                            borderWidth: 2,
-                            marginTop: 10,
-                            marginHorizontal: 38,
-                            padding: 6
+                            borderWidth: 0.3,
+                            marginTop: 28,
+                            marginHorizontal: 40,
+                            paddingVertical: 10,
+                            shadowColor: 'grey',
+                            shadowOffset: { width: 1.5, height: 1.5 },
+                            shadowRadius: 2,
+                            shadowOpacity: 0.35,
+                            elevation: 3,
+                            backgroundColor: 'white',
+                            borderRadius: 20,
+                            flex: 1,
                         }}
                     >
-                        <Text
+                        <View
                             style={{
-                                textAlign: 'center',
-                                fontSize: 20
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                alignContent: 'center',
+                                paddingVertical: 6
                             }}
-                        >Selamat datang di Aplikasi {'\n'}Kecamatan Bojonggenteng</Text>
+                        >
+                            <Image
+                                source={require('../assets/logo_bojong.png')}
+                                style={{
+                                    width: 50,
+                                    height: 50,
+                                }}
+                            />
+                        </View>
+
+                        <View
+                            style={{
+                                paddingTop: 4
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    textAlign: 'center',
+                                    fontSize: 14,
+                                    color: '#444444'
+                                }}
+                            >Selamat datang di Aplikasi{'\n'} Kecamatan Bojonggenteng
+                            </Text>
+                        </View>
                     </View>
 
                     <View
                         style={{
                             alignItems: 'center',
-                            marginTop: 50
+                            marginTop: 35
                         }}
                     >
                         <TouchableOpacity

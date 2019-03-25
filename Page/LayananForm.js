@@ -22,7 +22,8 @@ export default class LayananForm extends React.Component {
                         <Text
                             style={{
                                 textAlign: 'justify',
-                                lineHeight: 20
+                                lineHeight: 20,
+                                color: '#333333'
                             }}
                         >
                             {item.btnName}</Text>
@@ -44,6 +45,7 @@ export default class LayananForm extends React.Component {
                             style={{
                                 textAlign: 'center',
                                 fontSize: 15,
+                                color: '#333333'
                             }}
                         >
                             Choose file

@@ -9,56 +9,36 @@ import {
     TouchableOpacity,
     TextInput
 } from 'react-native';
+import BackBtn from './BackBtn';
+import BottomBar from './BottomBar';
 
 export default class Elapor extends React.Component {
-    _ProfileButton() {
+    _HomeButtons() {
         const navigation = this.props.navigation;
 
         const buttons = [
             {
-                btnName: 'Home',
-                btnPage: 'HomePage',
-                btnImage: require('../home.png')
-            },
-            {
-                btnName: 'E-Lapor',
-                btnPage: 'Elapor',
-                btnImage: require('../elapor.png')
-            },
-            {
-                btnName: 'Pengaturan',
-                btnPage: 'Setting',
-                btnImage: require('../pengaturan.png')
+                btnName: 'HomePage',
+                btnPage: 'HomePage'
             }
         ];
 
-        const btn = buttons.map(function (item, index) {
+        const btn = buttons.map(function (items, index) {
             return (
                 <TouchableOpacity
                     key={index}
-                    style={{
-                        flexDirection: 'row',
-                        flex: 1,
-                        textAlign: 'center',
-                        justifyContent: 'center',
-                        ...(index == 1 ? { borderRightWidth: 1 } : {}),
-                        ...(index == 1 ? { borderLeftWidth: 1 } : {}),
-                        borderTopWidth: 1
-                    }}
-                    onPress={() => navigation.navigate(`${item.btnPage}`)}
+                    onPress={() => navigation.navigate('HomePage')}
                 >
-                    <View
+                    <Text
                         style={{
-                            paddingTop: 5,
-                            paddingBottom: 5,
+                            color: 'white',
+                            fontSize: 24,
+                            fontWeight: 'bold'
                         }}
                     >
-                        <Image
-                            style={{ width: 25, height: 25 }}
-                            source={item.btnImage}
-                        />
-                    </View>
-                </TouchableOpacity >
+                        {'<'}
+                    </Text>
+                </TouchableOpacity>
             )
         });
         return (btn);
@@ -96,27 +76,46 @@ export default class Elapor extends React.Component {
                 >
                 </SafeAreaView>
                 <ScrollView
-                    style={{
-                    }}
                 >
                     <View
                         style={{
-                            marginTop: 15,
-                            flex: 0.2,
                             backgroundColor: 'rgb(52,73,100)',
-                            width: '100%',
-                            height: 100,
-                            paddingTop: 30
+                            paddingVertical: 14,
+                            alignItems: 'center',
+                            flexDirection: 'row',
                         }}
                     >
-                        <Text
+                        <View
                             style={{
-                                textAlign: 'center',
-                                fontSize: 22,
-                                color: 'white',
-                                fontWeight: 'bold'
+                                paddingLeft: 11,
+                                flex: 0.2,
+                                paddingHorizontal: 12
                             }}
-                        >E-Lapor</Text>
+                        >
+                            {this._HomeButtons()}
+                        </View>
+                        <View
+                            style={{
+                                flex: 1
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    fontSize: 22,
+                                    color: 'white',
+                                    fontWeight: 'bold',
+                                    textAlign: 'center'
+                                }}
+                            >E-Lapor
+                            </Text>
+                        </View>
+                        <View
+                            style={{
+                                flex: 0.3
+                            }}
+                        >
+
+                        </View>
                     </View>
                     <View
                         style={{
@@ -126,7 +125,7 @@ export default class Elapor extends React.Component {
                         <View
                             style={{
                                 paddingHorizontal: 30,
-                                marginTop: 20,
+                                marginTop: 70,
                                 marginBottom: 20
                             }}
                         >
@@ -158,14 +157,18 @@ export default class Elapor extends React.Component {
                                 onChangeText={this.handleLapor} />
                             <TouchableOpacity
                                 style={{
-                                    backgroundColor: 'black',
-                                    borderWidth: 1,
-                                    shadowOpacity: 10,
+                                    backgroundColor: '#888888',
+                                    borderWidth: 0.1,
                                     borderRadius: 15,
                                     padding: 8,
                                     marginTop: 10,
                                     width: 60,
-                                    alignItems: 'center'
+                                    alignItems: 'center',
+                                    shadowColor: 'grey',
+                                    shadowOffset: { width: 1.5, height: 1.5 },
+                                    shadowRadius: 2,
+                                    shadowOpacity: 0.35,
+                                    elevation: 3,
                                 }}
                                 onPress={
                                     () => this.Kirim(this.state.lapor)
@@ -177,15 +180,8 @@ export default class Elapor extends React.Component {
                         </View>
                     </View>
                 </ScrollView>
-                <View
-                    style={{
-                        flexDirection: "row",
-                        marginTop: 15,
-                        position: 'absolute',
-                        bottom: 0,
-                    }}
-                >
-                    {this._ProfileButton()}
+                <View>
+                    <BottomBar navigation={navigation} />
                 </View>
             </View>
         );

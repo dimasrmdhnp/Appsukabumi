@@ -1,65 +1,20 @@
 import React from 'react';
 import {
-    StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView,
-    Alert, Image, Button,
+    StyleSheet,
+    Text,
+    View,
+    TouchableOpacity,
+    ScrollView,
+    Alert,
+    SafeAreaView,
+    Platform,
 } from 'react-native';
+
+import BottomBar from './BottomBar';
 
 export default class Page extends React.Component {
     onPressButton = () => {
         Alert.alert("ktp");
-    }
-
-    _ProfileButton() {
-        const navigation = this.props.navigation;
-
-        const buttons = [
-            {
-                btnName: 'Home',
-                btnKey: 'home',
-                btnImage: require('../home.png')
-            },
-            {
-                btnName: 'E-Lapor',
-                btnKey: 'e-lapor',
-                btnImage: require('../elapor.png')
-            },
-            {
-                btnName: 'Pengaturan',
-                btnKey: 'pengaturan',
-                btnImage: require('../pengaturan.png')
-            }
-        ];
-
-        const btn = buttons.map(function (item, index) {
-            return (
-                <TouchableOpacity
-                    key={item.btnKey}
-                    style={{
-                        flexDirection: 'row',
-                        flex: 1,
-                        textAlign: 'center',
-                        justifyContent: 'center',
-                        ...(index == 1 ? { borderRightWidth: 1 } : {}),
-                        ...(index == 1 ? { borderLeftWidth: 1 } : {}),
-                        borderTopWidth: 1
-                    }}
-                    onPress={() => navigation.navigate('TestScreen')}
-                >
-                    <View
-                        style={{
-                            paddingTop: 5,
-                            paddingBottom: 5,
-                        }}
-                    >
-                        <Image
-                            style={{ width: 25, height: 25 }}
-                            source={item.btnImage}
-                        />
-                    </View>
-                </TouchableOpacity >
-            )
-        });
-        return (btn);
     }
 
     _HomeButtons() {
@@ -166,14 +121,21 @@ export default class Page extends React.Component {
                         style={{
                             padding: 5,
                             borderRadius: 10,
-                            borderWidth: 1,
+                            borderWidth: 0.5,
                             width: 30,
                             marginRight: 7,
+                            shadowColor: 'grey',
+                            shadowOffset: { width: 1.5, height: 1.5 },
+                            shadowRadius: 2,
+                            shadowOpacity: 0.35,
+                            elevation: 3,
+                            backgroundColor: 'white'
                         }}>
                         <Text
                             style={{
                                 textAlign: 'center',
-                                fontSize: 15
+                                fontSize: 15,
+                                color: "#444444"
                             }}
                         >
                             {index + 1}
@@ -184,13 +146,20 @@ export default class Page extends React.Component {
                         style={{
                             padding: 5,
                             borderRadius: 10,
-                            borderWidth: 1,
+                            borderWidth: 0.5,
                             width: 250,
+                            shadowColor: 'grey',
+                            shadowOffset: { width: 1.5, height: 1.5 },
+                            shadowRadius: 2,
+                            shadowOpacity: 0.35,
+                            elevation: 3,
+                            backgroundColor: 'white'
                         }}>
                         <Text
                             style={{
                                 textAlign: 'center',
                                 fontSize: 15,
+                                color: "#444444"
                             }}
                         >
                             {item.btnName}
@@ -211,39 +180,46 @@ export default class Page extends React.Component {
                     flex: 1
                 }}
             >
-                <ScrollView
+                <SafeAreaView
                     style={{
-                        marginBottom: 37
+                        ...Platform.select({
+                            android: {
+                                backgroundColor: 'black',
+                                height: 24,
+                            }
+                        })
                     }}
-                >
-                    <View style={styles.container}>
-                        <View
-                            style={{
-                                flex: 0.3,
-                                paddingLeft: 11,
-                                paddingTop: 8
-                            }}
-                        >
-                            {this._HomeButtons()}
-                        </View>
-                        <Text
-                            style={{
-                                fontWeight: 'bold',
-                                fontSize: 22,
-                                color: 'white',
-                                flex: 0.6,
-                                paddingTop: 10,
-                                paddingLeft: 36
-                            }}
-                        >Layanan</Text>
+                ></SafeAreaView>
+                <View style={styles.container}>
+                    <View
+                        style={{
+                            flex: 0.3,
+                            paddingLeft: 11,
+                            paddingTop: 8
+                        }}
+                    >
+                        {this._HomeButtons()}
                     </View>
-
+                    <Text
+                        style={{
+                            fontWeight: 'bold',
+                            fontSize: 22,
+                            color: 'white',
+                            flex: 0.6,
+                            paddingTop: 10,
+                            paddingLeft: 36
+                        }}
+                    >Layanan</Text>
+                </View>
+                <ScrollView
+                >
                     <View>
                         <Text
                             style={{
                                 textAlign: 'center',
                                 paddingHorizontal: 27,
-                                paddingTop: 10
+                                paddingTop: 10,
+                                color: "#333333"
                             }}
                         >
                             Selamat datang dihalaman Layanan kami,silahkan pilih layanan yang anda butuhkan
@@ -262,14 +238,10 @@ export default class Page extends React.Component {
 
                 </ScrollView>
                 <View
-                    style={{
-                        flexDirection: "row",
-                        marginTop: 15,
-                        position: 'absolute',
-                        bottom: 0,
-                    }}
                 >
-                    {this._ProfileButton()}
+                    <BottomBar
+                        navigation={navigation}
+                    />
                 </View>
             </View>
         );
@@ -278,11 +250,11 @@ export default class Page extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: 'rgb(52,73,100)',
         height: 80,
-        paddingTop: 25,
+        paddingTop: 15,
         flexDirection: 'row',
+
     },
 
 

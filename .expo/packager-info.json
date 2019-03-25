@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": "https://59-c77.anonymous.layanan-bojong.exp.direct",
-  "packagerNgrokUrl": "https://packager.59-c77.anonymous.layanan-bojong.exp.direct",
-  "ngrokPid": 29752,
+  "packagerPort": 19001,
+  "packagerPid": 12576,
+  "expoServerNgrokUrl": "https://5c-cqi.anonymous.layanan-bojong.exp.direct",
+  "packagerNgrokUrl": "https://packager.5c-cqi.anonymous.layanan-bojong.exp.direct",
+  "ngrokPid": 5676,
   "webpackServerPort": null
 }

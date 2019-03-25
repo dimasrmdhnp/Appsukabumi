@@ -44,7 +44,7 @@ export default class KtpPage extends React.Component {
             }
         ];
 
-        return (<LayananForm buttons={buttonts} />)
+        return (<LayananForm buttons={buttons} />)
     }
 
     render() {
@@ -69,7 +69,7 @@ export default class KtpPage extends React.Component {
                 ></SafeAreaView>
 
                 <BackBtn
-                    title="Perekamang e-KTP"
+                    title="Perekaman e-KTP"
                     navigation={navigation}
                 />
 

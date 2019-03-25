@@ -38,20 +38,17 @@ export default class BottomBar extends React.Component {
                         flex: 1,
                         textAlign: 'center',
                         justifyContent: 'center',
-                        ...(index == 1 ? { borderRightWidth: 1 } : {}),
-                        ...(index == 1 ? { borderLeftWidth: 1 } : {}),
-                        borderTopWidth: 1
+                        borderTopWidth: 0.2,
                     }}
                     onPress={() => navigation.navigate(`${item.btnPage}`)}
                 >
                     <View
                         style={{
-                            paddingTop: 5,
-                            paddingBottom: 5,
+                            paddingVertical: 12
                         }}
                     >
                         <Image
-                            style={{ width: 25, height: 25 }}
+                            style={{ width: 27, height: 27 }}
                             source={item.btnImage}
                         />
                     </View>
@@ -66,7 +63,7 @@ export default class BottomBar extends React.Component {
         return (
             <View
                 style={{
-                    flexDirection: 'row'
+                    flexDirection: 'row',
                 }}
             >
                 {this._ProfileButton()}
