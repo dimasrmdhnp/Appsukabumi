@@ -19,6 +19,10 @@ import Elapor from './Page/Elapor';
 import Setting from './Page/Setting';
 import SettingAkun from './Page/SettingAkun';
 import SettingId from './Page/SettingID';
+import SyaratDanKetentuan from './Page/SyaratDanKetentuan';
+import KebijakanPrivasi from './Page/KebijakanPrivasi';
+import PusatBantuan from './Page/PusatBantuan';
+import Keluar from './Page/Keluar';
 
 const Screen = createStackNavigator({
     HomePage: {
@@ -80,6 +84,18 @@ const Screen = createStackNavigator({
     },
     SettingId: {
         screen: SettingId
+    },
+    SyaratDanKetentuan: {
+        screen: SyaratDanKetentuan
+    },
+    KebijakanPrivasi: {
+        screen: KebijakanPrivasi
+    },
+    PusatBantuan: {
+        screen: PusatBantuan
+    },
+    Keluar: {
+        screen: Keluar
     }
 },
     {

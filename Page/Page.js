@@ -190,10 +190,10 @@ export default class Page extends React.Component {
                         <Text
                             style={{
                                 textAlign: 'center',
-                                fontSize: 15
+                                fontSize: 15,
                             }}
                         >
-                            {item.btnName} {item.btnColor}
+                            {item.btnName}
                         </Text>
                     </View>
                 </TouchableOpacity>

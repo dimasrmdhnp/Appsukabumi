@@ -67,28 +67,19 @@ export default class HomePage extends React.Component {
                     <View
                         style={{
                             alignItems: 'center',
-                            marginTop: 70
+                            marginTop: 50
                         }}
                     >
                         <TouchableOpacity
-                            style={{
-                                borderWidth: 1,
-                                shadowOffset: 2,
-                                shadowRadius: 2,
-                                borderRadius: 15,
-                                width: 140,
-                                height: 140,
-                                alignContent: 'center',
-                                paddingTop: 50
-                            }}
                             onPress={() => navigation.navigate('Page')}
                         >
-                            <Text
+                            <Image
                                 style={{
-                                    fontSize: 17,
-                                    textAlign: "center"
+                                    width: 180,
+                                    height: 180
                                 }}
-                            >Pilih Layanan</Text>
+                                source={require('../assets/tombol.png')} />
+
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
