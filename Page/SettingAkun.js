@@ -10,6 +10,8 @@ import {
     TextInput
 } from 'react-native';
 
+import HeaderSetting from './HeaderSetting';
+
 export default class SettingAkun extends React.Component {
 
     _SettingProfile() {
@@ -57,9 +59,9 @@ export default class SettingAkun extends React.Component {
                     </Text>
                     <TextInput
                         style={{
-                            borderWidth: 1,
-                            width: 200,
-                            height: 50
+                            borderWidth: 0.5,
+                            width: 100,
+                            height: 15
                         }}
                     />
                 </View>
@@ -69,9 +71,20 @@ export default class SettingAkun extends React.Component {
         return (item);
     }
     render() {
+
+        const navigation = this.props.navigation
         return (
             <View>
-
+                <View>
+                    <HeaderSetting
+                        title='Akun Pribadi'
+                        navigation={navigation}
+                    />
+                </View>
+                <ScrollView>
+                    <View>                                      {this._SettingProfile()}
+                    </View>
+                </ScrollView>
             </View>
         )
     }

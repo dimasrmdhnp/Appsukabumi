@@ -101,7 +101,7 @@ export default class Setting extends React.Component {
                         borderBottomWidth: 0.4,
                     }}
                     onPress={() =>
-                        navigation.navigate(`${item.btnPage}`)}
+                        navigation.navigate(`${name.btnPage}`)}
                 >
                     <Text
                         style={{
