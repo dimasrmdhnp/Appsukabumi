@@ -135,7 +135,7 @@ export default class Setting extends React.Component {
                                 textAlign: 'center'
                             }}
                         >
-                            Setting masi on progress kk
+                            Win ini lg buat array
                         </Text>
                     </View>
                     <View>
