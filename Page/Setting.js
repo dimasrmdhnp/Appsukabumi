@@ -84,10 +84,6 @@ export default class Setting extends React.Component {
             {
                 itemName: 'Pusat Bantuan',
                 btnPage: 'PusatBantuan'
-            },
-            {
-                itemName: 'Keluar',
-                btnPage: 'Keluar',
             }
         ];
 
@@ -188,6 +184,21 @@ export default class Setting extends React.Component {
                         {this._SettingProfile()}
                     </View>
                 </ScrollView>
+                <View>
+                    <TouchableOpacity
+                        style={{
+                            borderTopWidth: 0.5,
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}
+                    >
+                        <Text
+                            style={{
+                                color: '#444444',
+                            }}
+                        >Keluar</Text>
+                    </TouchableOpacity>
+                </View>
             </View >
         );
     }

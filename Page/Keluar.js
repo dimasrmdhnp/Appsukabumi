@@ -19,6 +19,7 @@ export default class Keluar extends React.Component {
                     title='Keluar'
                     navigation={navigation}
                 />
+
             </View>
         )
     }

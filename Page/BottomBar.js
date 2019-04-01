@@ -23,6 +23,11 @@ export default class BottomBar extends React.Component {
                 btnImage: require('../elapor.png')
             },
             {
+                btnName: 'BeritaBojong',
+                btnPage: 'Berita',
+                btnImage: require('../berita.png')
+            },
+            {
                 btnName: 'Pengaturan',
                 btnPage: 'Setting',
                 btnImage: require('../pengaturan.png')

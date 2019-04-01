@@ -6,17 +6,41 @@ import {
     SafeAreaView,
     ScrollView,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions
 } from 'react-native';
 
 import BottomBar from './BottomBar';
+import Carousel from 'react-native-banner-carousel';
+
+const dimensions = Dimensions.get('window');
+const dWidth = dimensions.width;
+const bannerHeight = dWidth * 0.67;
 
 export default class HomePage extends React.Component {
 
     render() {
 
         const navigation = this.props.navigation;
+        const bannerImages = ['foto1', 'foto2', 'foto3', 'foto4'];
+        const bannerImages2 = [
+            require('../assets/kolom_berita/berita_hot/hot_bcl.png'),
+            require('../assets/kolom_berita/berita_hot/hot_agnez.png'),
+            require('../assets/kolom_berita/berita_hot/hot_us.png'),
+            require('../assets/kolom_berita/berita_hot/hot_rossa.png')
+        ];
 
+        const contentBanner = bannerImages2.map(function (item, index) {
+            return (
+                <Image
+                    key={index}
+                    style={{ width: dWidth, height: bannerHeight }}
+                    //source={{ uri: `${global.uri}assets/images/site/${item}.png`}}
+                    source={item}
+                    resizeMode='contain'
+                />
+            );
+        });
         return (
             <View
                 style={{
@@ -42,7 +66,7 @@ export default class HomePage extends React.Component {
                     <View
                         style={{
                             backgroundColor: 'rgb(52,73,100)',
-                            height: 160,
+                            height: 185,
                             width: '100%',
                             shadowColor: 'grey',
                             shadowOffset: { width: 1.5, height: 1.5 },
@@ -53,25 +77,37 @@ export default class HomePage extends React.Component {
                     >
                         <View
                             style={{
-                                paddingTop: 12
+                                marginHorizontal: 25,
+                                marginVertical: 10
                             }}
                         >
                             <Text
                                 style={{
-                                    color: 'white',
-                                    fontSize: 18,
-                                    textAlign: 'center'
+                                    fontWeight: "bold",
+                                    fontSize: 17,
+                                    color: "white"
                                 }}
+                            >Berita HOT</Text>
+                        </View>
+                        <View style={{
+                            marginTop: -40
+                        }}>
+                            <Carousel
+                                autoplay
+                                autoplayTimeout={5000}
+                                loop
+                                index={0}
+                                pageSize={dWidth}
                             >
-                                Berita Terkini
-                            </Text>
+                                {contentBanner}
+                            </Carousel>
                         </View>
                     </View>
 
                     <View
                         style={{
                             borderWidth: 0.3,
-                            marginTop: 28,
+                            marginTop: 46,
                             marginHorizontal: 40,
                             paddingVertical: 10,
                             shadowColor: 'grey',
@@ -104,7 +140,7 @@ export default class HomePage extends React.Component {
 
                         <View
                             style={{
-                                paddingTop: 4
+                                paddingTop: 8
                             }}
                         >
                             <Text
@@ -121,7 +157,7 @@ export default class HomePage extends React.Component {
                     <View
                         style={{
                             alignItems: 'center',
-                            marginTop: 35
+                            marginTop: 10
                         }}
                     >
                         <TouchableOpacity

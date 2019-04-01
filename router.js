@@ -23,6 +23,10 @@ import SyaratDanKetentuan from './Page/SyaratDanKetentuan';
 import KebijakanPrivasi from './Page/KebijakanPrivasi';
 import PusatBantuan from './Page/PusatBantuan';
 import Keluar from './Page/Keluar';
+import Berita from './Page/Berita';
+import berita1 from './Page/berita1';
+import HeaderBerita from './Page/HeaderBerita';
+import berita2 from './Page/berita2';
 
 const Screen = createStackNavigator({
     HomePage: {
@@ -96,6 +100,18 @@ const Screen = createStackNavigator({
     },
     Keluar: {
         screen: Keluar
+    },
+    Berita: {
+        screen: Berita
+    },
+    berita1: {
+        screen: berita1
+    },
+    HeaderBerita: {
+        screen: HeaderBerita
+    },
+    berita2: {
+        screen: berita2
     }
 },
     {
