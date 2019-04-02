@@ -131,7 +131,8 @@ export default class Elapor extends React.Component {
                         >
                             <Text
                                 style={{
-                                    textAlign: 'center'
+                                    textAlign: 'center',
+                                    lineHeight: 20
                                 }}
                             >
                                 E-Lapor adalah fitur yang disediakan oleh kecamatan Bojonggenteng untuk masyarakat, agar dapat melaporkan kejadian apapun secara online yang terjadi di sekitar.
@@ -145,7 +146,7 @@ export default class Elapor extends React.Component {
                             <TextInput
                                 style={{
                                     borderColor: 'black',
-                                    borderWidth: 1,
+                                    borderWidth: 0.5,
                                     marginTop: 15,
                                     width: 300,
                                     height: 200,

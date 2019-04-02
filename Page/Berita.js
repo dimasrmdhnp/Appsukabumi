@@ -31,32 +31,32 @@ export default class Berita extends React.Component {
             },
             {
                 btnName: 'Kedapatan Beli Sabu Caleg Gerindra Ditangkap Polisi',
-                btnPage: 'berita2',
+                btnPage: 'berita1',
                 btnImage: require('../assets/kolom_berita/berita_caleg.jpg')
             },
             {
                 btnName: 'Berkas Kasus Vanessa Angel P21, Kejari Surabaya Kantongi BUkti Uang Rp. 35 Juta',
-                btnPage: 'berita3',
+                btnPage: 'berita1',
                 btnImage: require('../assets/kolom_berita/berita_vanessa.jpeg')
             },
             {
                 btnName: 'Liburan ke Jepang Lagi, Begini Pose Kocak Ringgo Sekeluarga',
-                btnPage: 'berita4',
+                btnPage: 'berita1',
                 btnImage: require('../assets/kolom_berita/berita_ringo.jpg')
             },
             {
                 btnName: 'Roy Marten soal Gading Liburan Bareng Gisel-Gempi: Saya Kira Itu Bagus',
-                btnPage: 'berita5',
+                btnPage: 'berita1',
                 btnImage: require('../assets/kolom_berita/berita_roy.jpg')
             },
             {
                 btnName: 'Ayu Ting Ting Didoakan Berjodoh Lagi Dengan Shaheer Seikh, Komentar Ivan Gunawan Jadi Sorotan',
-                btnPage: 'berita6',
+                btnPage: 'berita1',
                 btnImage: require('../assets/kolom_berita/berita_ayu.png')
             },
             {
                 btnName: 'Janji Anti Selingkuh Angga Wijaya untuk Dewi Perssik Jadi Sorotan, Suami Takut Istri',
-                btnPage: 'berita7',
+                btnPage: 'berita1',
                 btnImage: require('../assets/kolom_berita/berita_dewi.jpg')
             }
         ];
@@ -112,23 +112,40 @@ export default class Berita extends React.Component {
 
     render() {
         const navigation = this.props.navigation
-        const bannerImages = ['foto1', 'foto2', 'foto3', 'foto4'];
         const bannerImages2 = [
-            require('../assets/kolom_berita/berita_hot/hot_bcl.png'),
-            require('../assets/kolom_berita/berita_hot/hot_agnez.png'),
-            require('../assets/kolom_berita/berita_hot/hot_us.png'),
-            require('../assets/kolom_berita/berita_hot/hot_rossa.png')
+            {
+                btnImage: require('../assets/kolom_berita/berita_hot/hot_bcl.png'),
+                btnPage: 'berita1'
+            },
+            {
+                btnImage: require('../assets/kolom_berita/berita_hot/hot_agnez.png'),
+                btnPage: 'berita1'
+            },
+            {
+                btnImage: require('../assets/kolom_berita/berita_hot/hot_us.png'),
+                btnPage: 'berita1'
+            },
+            {
+                btnImage: require('../assets/kolom_berita/berita_hot/hot_rossa.png'),
+                btnPage: 'berita1'
+            },
         ];
 
         const contentBanner = bannerImages2.map(function (item, index) {
             return (
-                <Image
+                <TouchableOpacity
                     key={index}
-                    style={{ width: dWidth, height: bannerHeight }}
-                    //source={{ uri: `${global.uri}assets/images/site/${item}.png`}}
-                    source={item}
-                    resizeMode='contain'
-                />
+                    onPress={() => navigation.navigate(`${item.btnPage}`)}
+                >
+                    <View>
+                        <Image
+                            style={{ width: dWidth, height: bannerHeight }}
+                            //source={{ uri: `${global.uri}assets/images/site/${item}.png`}}
+                            source={item.btnImage}
+                            resizeMode='contain'
+                        />
+                    </View>
+                </TouchableOpacity>
             );
         });
         return (
@@ -172,7 +189,7 @@ export default class Berita extends React.Component {
                     }}>
                         <Carousel
                             autoplay
-                            autoplayTimeout={5000}
+                            autoplayTimeout={4000}
                             loop
                             index={0}
                             pageSize={dWidth}

@@ -26,7 +26,7 @@ import Keluar from './Page/Keluar';
 import Berita from './Page/Berita';
 import berita1 from './Page/berita1';
 import HeaderBerita from './Page/HeaderBerita';
-import berita2 from './Page/berita2';
+import SettingAkunDanID from './Page/SettingAkunDanID';
 
 const Screen = createStackNavigator({
     HomePage: {
@@ -110,8 +110,8 @@ const Screen = createStackNavigator({
     HeaderBerita: {
         screen: HeaderBerita
     },
-    berita2: {
-        screen: berita2
+    SettingAkunDanID: {
+        screen: SettingAkunDanID
     }
 },
     {

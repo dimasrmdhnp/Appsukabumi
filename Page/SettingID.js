@@ -10,35 +10,22 @@ import {
     TextInput
 } from 'react-native';
 
-export default class SettingID extends React.Component {
+import HeaderSetting from './HeaderSetting';
+
+export default class SettingAkun extends React.Component {
 
     _SettingProfile() {
         const navigation = this.props.navigation;
 
         const desc = [
             {
-                itemName: 'Nama Lengkap',
+                itemName: 'Password Lama',
             },
             {
-                itemName: 'Tanggal Lahir',
+                itemName: 'Password Baru',
             },
             {
-                itemName: 'Jenis Kelamin',
-            },
-            {
-                itemName: ' Alamat',
-            },
-            {
-                itemName: 'Nomor Handphone',
-            },
-            {
-                itemName: 'Email',
-            },
-            {
-                itemName: 'Nomor Handphone',
-            },
-            {
-                itemName: 'Ubah Password',
+                itemName: 'Ulangin Password Baru',
             }
         ];
 
@@ -48,20 +35,34 @@ export default class SettingID extends React.Component {
                     key={index}
                     style={{
                         flexDirection: 'row',
-                        marginTop: 14
+                        marginTop: 14,
                     }}
                 >
-                    <Text
-                    >
-                        {name.itemName}
-                    </Text>
-                    <TextInput
+                    <View
                         style={{
-                            borderWidth: 1,
-                            width: 200,
-                            height: 50
+                            flexDirection: 'row',
+                            flex: 1,
                         }}
-                    />
+                    >
+                        <Text
+                            style={{
+                                color: '#333333',
+                                flex: 0.4,
+                                paddingTop: 3,
+                                paddingLeft: 4
+                            }}
+                        >
+                            {name.itemName}
+                        </Text>
+                        <TextInput
+                            style={{
+                                borderWidth: 0.4,
+                                width: 120,
+                                height: 28,
+                                flex: 0.5
+                            }}
+                        />
+                    </View>
                 </View>
             )
         });
@@ -69,9 +70,57 @@ export default class SettingID extends React.Component {
         return (item);
     }
     render() {
-        return (
-            <View>
 
+        const navigation = this.props.navigation
+        return (
+            <View
+                style={{
+                    flex: 1
+                }}
+            >
+                <SafeAreaView
+                    style={{
+                        ...Platform.select({
+                            android: {
+                                backgroundColor: 'black',
+                                height: 24,
+                            }
+                        })
+                    }}
+                >
+                </SafeAreaView>
+                <View>
+                    <HeaderSetting
+                        title='Ubah Password'
+                        navigation={navigation}
+                    />
+                </View>
+                <View
+                    style={{
+                        flex: 1
+                    }}
+                >
+                    {this._SettingProfile()}
+                </View>
+
+                <View>
+                    <TouchableOpacity
+                        style={{
+                            borderTopWidth: 0.1,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            height: 50,
+                            backgroundColor: '#4ed964'
+                        }}
+                    >
+                        <Text
+                            style={{
+                                color: 'white',
+                                fontSize: 16
+                            }}
+                        >Ubah Password</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }

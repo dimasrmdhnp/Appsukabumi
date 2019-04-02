@@ -14,75 +14,58 @@ export default class HeaderSetting extends React.Component {
         return (
             <View
                 style={{
-                    flex: 1
+                    backgroundColor: 'white',
+                    paddingVertical: 14,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    shadowColor: 'grey',
+                    shadowOffset: { width: 1.5, height: 1.5 },
+                    shadowRadius: 2,
+                    shadowOpacity: 0.35,
+                    elevation: 3,
+                    height: 70
                 }}
             >
-                <SafeAreaView
+                <TouchableOpacity
+                    onPress={() => navigation.goBack()}
                     style={{
-                        ...Platform.select({
-                            android: {
-                                backgroundColor: 'black',
-                                height: 24,
-                            }
-                        })
+                        paddingHorizontal: 12,
+                        flex: 0.2
                     }}
                 >
-                </SafeAreaView>
+
+                    <Text
+                        style={{
+                            fontSize: 30,
+                            color: '#444444',
+                        }}
+                    >
+                        {"<"}
+                    </Text>
+                </TouchableOpacity>
+
                 <View
                     style={{
-                        backgroundColor: 'white',
-                        paddingVertical: 14,
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        shadowColor: 'grey',
-                        shadowOffset: { width: 1.5, height: 1.5 },
-                        shadowRadius: 2,
-                        shadowOpacity: 0.35,
-                        elevation: 3,
-                        height: 70
+                        flex: 1
                     }}
                 >
-                    <TouchableOpacity
-                        onPress={() => navigation.goBack()}
+                    <Text
                         style={{
-                            paddingHorizontal: 12,
-                            flex: 0.2
+                            color: '#444444',
+                            textAlign: 'center',
+                            fontSize: 21
                         }}
                     >
+                        {this.props.title}
+                    </Text>
+                </View>
 
-                        <Text
-                            style={{
-                                fontSize: 30,
-                                color: '#444444',
-                            }}
-                        >
-                            {"<"}
-                        </Text>
-                    </TouchableOpacity>
+                <View
+                    style={{
+                        flex: 0.3
+                    }}
+                >
 
-                    <View
-                        style={{
-                            flex: 1
-                        }}
-                    >
-                        <Text
-                            style={{
-                                color: '#444444',
-                                textAlign: 'center',
-                                fontSize: 21
-                            }}
-                        >
-                            {this.props.title}
-                        </Text>
-                    </View>
-
-                    <View
-                        style={{
-                            flex: 0.3
-                        }}
-                    >
-
-                    </View>
                 </View>
             </View>
         );

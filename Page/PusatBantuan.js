@@ -19,17 +19,39 @@ export default class PusatBantuan extends React.Component {
                     flex: 1
                 }}
             >
+                <SafeAreaView
+                    style={{
+                        ...Platform.select({
+                            android: {
+                                backgroundColor: 'black',
+                                height: 24,
+                            }
+                        })
+                    }}
+                >
+                </SafeAreaView>
                 <HeaderSetting
                     title='Pusat Bantuan'
                     navigation={navigation}
                 />
-                <View>
-                    <Text>
+                <View
+                    style={{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        marginTop: 150
+                    }}
+                >
+                    <Text
+                        style={{
+                            textAlign: 'center',
+                            lineHeight: 24
+                        }}
+                    >
                         Hubungi Kami Di:
                         {'\n'}
-                        No. Tlp (Camat): 0815-6227-953
+                        No. Tlp: 0266 620147
                         {'\n'}
-                        Email: kecbojonggenteng@gmail.com
+                        Email: kec.bojonggenteng@gmail.com
                     </Text>
                 </View>
             </View>

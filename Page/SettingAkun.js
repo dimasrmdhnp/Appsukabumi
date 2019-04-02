@@ -90,18 +90,22 @@ export default class SettingAkun extends React.Component {
                     flex: 1
                 }}
             >
+                <SafeAreaView
+                    style={{
+                        ...Platform.select({
+                            android: {
+                                backgroundColor: 'black',
+                                height: 24,
+                            }
+                        })
+                    }}
+                >
+                </SafeAreaView>
                 <View>
                     <HeaderSetting
                         title='Akun Pribadi'
                         navigation={navigation}
                     />
-                </View>
-                <View
-                    style={{
-                        flex: 0.2
-                    }}
-                >
-
                 </View>
                 <View
                     style={{
@@ -111,12 +115,24 @@ export default class SettingAkun extends React.Component {
                     {this._SettingProfile()}
                 </View>
 
-                <TouchableOpacity
-                    style={{
-                        borderTopWidth: 0.3
-                    }}
-                >
-                </TouchableOpacity>
+                <View>
+                    <TouchableOpacity
+                        style={{
+                            borderTopWidth: 0.5,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            height: 50,
+                            backgroundColor: '#4ed964'
+                        }}
+                    >
+                        <Text
+                            style={{
+                                color: 'white',
+                                fontSize: 16,
+                            }}
+                        >Ubah Akun Pribadi</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
